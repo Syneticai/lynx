@@ -1,0 +1,9 @@
+.DS_Store
+.build/
+.swiftpm/
+Packages/
+*.xcodeproj
+xcuserdata/
+
+# Claude Code project state — do not publish
+.claude/
