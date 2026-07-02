@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="Assets/LYNX-Logo-Red.svg" alt="LYNX" width="320">
+</p>
+
 # LYNX
 
 Public binary distribution for the LYNX SDK.
