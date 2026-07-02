@@ -1,0 +1,31 @@
+# lynx SDK docs
+
+Agent-grade docs for the lynx on-device CV SDK (Swift/Kotlin/Java/Python/C). Raw markdown below; start at index.md.
+
+## Docs
+- [api/c.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/api/c.md): include "lynx.h" and link against liblynx (the prebuilt keyed core ships
+- [api/conventions.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/api/conventions.md): Fallible calls throw in every binding . You never check a return code by hand. The thrown error carries:
+- [api/java.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/api/java.md): Package ai.golynx.lynx. Java 17.
+- [api/kotlin.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/api/kotlin.md): Package ai.synetic.lynx — import ai.synetic.lynx.. The JNI library
+- [api/python.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/api/python.md): The Python import path is always import lynx, regardless of which distribution
+- [api/swift.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/api/swift.md): import Lynx. Swift Package Manager, swift-tools-version 5.9; platforms iOS 15+,
+- [index.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/index.md): lynx is an on-device computer-vision SDK: you load a small signed model  and run inference locally — no server round-trip, no GPU required
+- [install/android.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/install/android.md): Add the Gradle dependency  with google + mavenCentral repos:
+- [install/c.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/install/c.md): Download the C SDK  from a build run and compile against it:
+- [install/ios.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/install/ios.md): Add the Swift Package :
+- [install/java.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/install/java.md): Add the dependency :
+- [install/python.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/install/python.md): bash
+- [models/catalog.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/models/catalog.md): Two models are available. Both are keyless , production version 2.0, and ship for linux-x64 , ios-arm64 , android-arm64-v8a , input 640×640
+- [models/no-model.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/models/no-model.md): You're on this path when the task needs a class or capability the shipped models don't cover, e.g.:
+- [recipes/android-detection.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/android-detection.md): Goal: load a model, run detection on a Bitmap, get boxes + labels + scores. Model: lynx-basic ).
+- [recipes/c-detection.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/c-detection.md): Goal: load a model, run detection on an image, print each detection's class name + score + box. Model: lynx-basic ).
+- [recipes/ios-detection.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/ios-detection.md): Goal: load a model, run detection on an image, get boxes + labels + scores. Model: lynx-basic ).
+- [recipes/java-detection.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/java-detection.md): Goal: load a model, run detection on an image, get boxes + labels + scores. Model: lynx-basic ).
+- [recipes/python-classification.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-classification.md): Goal: run a whole-image classification head — "what is this image?" , not "where are the objects?".
+- [recipes/python-depth.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-depth.md): Goal: run detection and depth in one pass, read the dense depth map plus a per-object depth, and turn depth into a picture you can display. 
+- [recipes/python-detection.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-detection.md): Goal: load a model, run detection on an image, get boxes + labels + scores. Model: lynx-basic ).
+- [recipes/python-ocr.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-ocr.md): LYNX does OCR as detection: each character is a normal detection whose class is
+- [recipes/python-server.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-server.md): Goal: run lynx-basic behind an HTTP endpoint so a client that can't run the SDK on-device — a React Native / JS app, a Go/Rust/Java servic
+- [recipes/python-streaming.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-streaming.md): Goal: open a webcam, run tracked detection on every frame in a loop, and print the detections  per frame. Model: lynx-basic ).
+- [recipes/python-tracking.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/recipes/python-tracking.md): Goal: run detection across a video/frame sequence and follow each object with a stable id as it moves frame to frame. Model: lynx-basic ).
+- [support.md](https://raw.githubusercontent.com/Syneticai/lynx/main/docs/support.md): LYNX is one C inference core with a thin, idiomatic binding per language — the same models and the same open → predict → detections sh
