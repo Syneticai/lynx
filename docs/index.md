@@ -36,6 +36,7 @@ These docs are written to be **acted on directly** — every public symbol, its 
 - **models/** — which model to load.
   - [`models/catalog.md`](models/catalog.md) — the single source of model facts.
   - [`models/no-model.md`](models/no-model.md) — what to do when no pretrained model fits the task.
+- [`privacy.md`](privacy.md) — **telemetry & privacy**: what the SDK sends, and how to turn it off (`LYNX_TELEMETRY=0` / `set_telemetry_enabled(false)`).
 
 ## The one-call path
 

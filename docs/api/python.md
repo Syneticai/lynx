@@ -50,6 +50,8 @@ A model is opened by **slug**.
 | `providers() -> list[Provider]` | Execution providers available on this host. |
 | `cuda_device_count() -> int` | Number of visible CUDA devices (0 if none). |
 | `set_workers(gpus=None, cpus=None) -> None` | Configure compute workers — call **once at startup**, before `open()`/`predict()`. `gpus`: sequence of CUDA ids, an int count, or `None`/`0` (CPU). `cpus`: worker-thread count or `None` (auto). |
+| `set_telemetry_enabled(enabled: bool) -> None` | Turn anonymous usage telemetry on/off (on by default; also honors `LYNX_TELEMETRY=0`). Call once at startup. See [`privacy.md`](../privacy.md). |
+| `set_feedback_enabled(enabled: bool) -> None` | Turn feedback egress on/off (on by default; feedback only fires on explicit `submit_feedback`). |
 | `camera_open(index=0, *, width=0, height=0, fps=0.0) -> Camera` | Open a webcam source (0 = device default). |
 | `video_writer(path, width, height, fps=30.0, *, quality=85) -> VideoWriter` | Open a Motion-JPEG/AVI recorder. |
 | `depth_to_u8(frame: Frame)` | Render a frame's depth as a displayable `(H,W,3)` uint8 RGB image (closer = brighter); `None` if no depth. |
