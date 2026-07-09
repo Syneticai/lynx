@@ -222,22 +222,22 @@ per scene change instead of once per frame. Detection is never decimated;
 | Task | Value |
 |---|---|
 | `LYNX_TASK_BOUNDING_BOX` | `1<<0` |
-| `ORIENTED_BOUNDING_BOX` | `1<<1` |
-| `SEGMENTATION` | `1<<2` |
-| `DEPTH` | `1<<3` |
-| `POSE` | `1<<4` |
-| `CLASSIFICATION` | `1<<5` |
-| `REID` | `1<<6` |
-| `TEXT_RECOGNITION` | `1<<7` |
+| `LYNX_TASK_ORIENTED_BOUNDING_BOX` | `1<<1` |
+| `LYNX_TASK_SEGMENTATION` | `1<<2` |
+| `LYNX_TASK_DEPTH` | `1<<3` |
+| `LYNX_TASK_POSE` | `1<<4` |
+| `LYNX_TASK_CLASSIFICATION` | `1<<5` |
+| `LYNX_TASK_REID` | `1<<6` |
+| `LYNX_TASK_TEXT_RECOGNITION` | `1<<7` |
 
 - `lynx_conf_mode_t`:
 
 | Value | Int |
 |---|---|
-| `CALIBRATED_BALANCED` | 0 |
-| `CALIBRATED_MAX_RECALL` | 1 |
-| `CALIBRATED_MAX_PRECISION` | 2 |
-| `NON_CALIBRATED` | 3 |
+| `LYNX_CALIBRATED_BALANCED` | 0 |
+| `LYNX_CALIBRATED_MAX_RECALL` | 1 |
+| `LYNX_CALIBRATED_MAX_PRECISION` | 2 |
+| `LYNX_NON_CALIBRATED` | 3 |
 
 - `lynx_nms_mode_t`: `AUTO/ON/OFF`. `lynx_provider_t`: `CPU/CUDA/TENSORRT/COREML`.
 - `lynx_size_category_t`: `AUTO/PICO/NANO/MEDIUM/LARGE`. `lynx_goal_t`: `BALANCED/LATENCY/THROUGHPUT`.

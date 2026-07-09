@@ -6,7 +6,7 @@ Goal: load a model, run detection on an image, get boxes + labels + scores. Mode
 
 ## The whole thing
 
-`Lynx.load` and `predict` are synchronous and throw (unchecked `LynxException`); the first load downloads the model, so run them **off the main thread / event loop**. `predict` takes an image **path** (`String`) or raw **RGB bytes** (`byte[]`). The simplest path is a file path.
+`Lynx.open` and `predict` are synchronous and throw (unchecked `LynxException`); the first load downloads the model, so run them **off the main thread / event loop**. `predict` takes an image **path** (`String`) or raw **RGB bytes** (`byte[]`). The simplest path is a file path.
 
 ```java
 import ai.golynx.lynx.Detection;
@@ -19,7 +19,7 @@ public class Detect {
     public static void main(String[] args) {
         // Keyless: no setApiKey needed for lynx-basic. Loading downloads on first call.
         // try-with-resources frees the native model deterministically at block exit.
-        try (Model model = Lynx.load("lynx-basic")) {
+        try (Model model = Lynx.open("lynx-basic")) {
 
             try (Frame frame = model.predict("image.jpg")) {
                 for (Detection d : frame.detections()) {

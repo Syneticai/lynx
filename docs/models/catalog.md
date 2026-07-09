@@ -1,6 +1,6 @@
 # Model catalog
 
-> For LYNX SDK **1.0**. **Single source of truth for model facts** — recipes and the `lynx_find_model` tool read from here. Load any model by its slug: `Lynx.load("<slug>")` (Swift) / `lynx.open("<slug>")` (Python) / `Lynx.load("<slug>")` (Kotlin/Java) / `lynx_open("<slug>", …)` (C).
+> For LYNX SDK **1.0**. **Single source of truth for model facts** — recipes and the `lynx_find_model` tool read from here. Load any model by its slug: `Lynx.open("<slug>")` (Swift) / `lynx.open("<slug>")` (Python) / `Lynx.open("<slug>")` (Kotlin/Java) / `lynx_open("<slug>", …)` (C).
 
 Two models are available. Both are **keyless** (no API key — the SDK mints a per-device trial on first load), **production version 2.0**, and ship for **linux-x64 (ONNX), ios-arm64 (CoreML), android-arm64-v8a (TFLite)**, input **640×640**.
 
@@ -19,6 +19,6 @@ Two models are available. Both are **keyless** (no API key — the SDK mints a p
 
 ## Loading specifics
 
-- Both are keyless: `Lynx.load("lynx-basic")` / `lynx.open("lynx-ocr-fleet")` just works — no `setApiKey`.
+- Both are keyless: `Lynx.open("lynx-basic")` / `lynx.open("lynx-ocr-fleet")` just works — no `setApiKey`.
 - First load downloads + verifies + caches (a few seconds); subsequent loads are local. Run the first load off the main thread.
 - Pin a build with `version:`/`version=` (e.g. `"2.0"`); omit for the current production version.

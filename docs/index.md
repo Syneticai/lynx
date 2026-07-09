@@ -46,8 +46,8 @@ To integrate "use lynx in my `<platform>` app to `<task>`": read the matching `r
 **There is no JS, TypeScript, React Native, or Flutter binding.** The SDK ships exactly five bindings — **Swift, Kotlin, Java, Python, C** — and inference runs in the native core, not in JS. Two honest paths to use lynx from a cross-platform JS app:
 
 1. **Native module bridge (on-device).** Write a thin native module that calls the platform SDK directly and returns detections as JSON to JS:
-   - iOS: the Swift package (`Lynx.load(...)` → `model.predict(pixels:width:height:)`) — see [`install/ios.md`](install/ios.md) + [`api/swift.md`](api/swift.md).
-   - Android: the Kotlin AAR (`Lynx.load(...)` → `model.predict(image: ByteArray, width, height, …)`) — see [`install/android.md`](install/android.md) + [`api/kotlin.md`](api/kotlin.md).
+   - iOS: the Swift package (`Lynx.open(...)` → `model.predict(pixels:width:height:)`) — see [`install/ios.md`](install/ios.md) + [`api/swift.md`](api/swift.md).
+   - Android: the Kotlin AAR (`Lynx.open(...)` → `model.predict(image: ByteArray, width, height, …)`) — see [`install/android.md`](install/android.md) + [`api/kotlin.md`](api/kotlin.md).
    - Marshal each camera frame's pixel buffer across the RN/Flutter bridge into the native `predict` call; return `[{box, classId, confidence}]` to JS. This is real on-device inference (CoreML / NNAPI), just wrapped by your own module — there is no prebuilt one.
 2. **Server-side (fastest to stand up, not on-device).** Run the Python SDK behind an HTTP endpoint and have the JS app POST frames and render the returned detections. See [`install/python.md`](install/python.md) + [`recipes/python-detection.md`](recipes/python-detection.md).
 

@@ -6,7 +6,7 @@ Goal: load a model, run detection on an image, get boxes + labels + scores. Mode
 
 ## The whole thing
 
-`Lynx.load` and `predict` are synchronous and throw; the first load downloads the model, so run them **off the main thread**. The model takes an image **path** or raw **RGB bytes**; a helper to convert a `UIImage` is included.
+`Lynx.open` and `predict` are synchronous and throw; the first load downloads the model, so run them **off the main thread**. The model takes an image **path** or raw **RGB bytes**; a helper to convert a `UIImage` is included.
 
 ```swift
 import Lynx
@@ -17,7 +17,7 @@ struct Box { let label: String; let score: Float; let rect: CGRect }
 /// Load once, reuse. Loading downloads the model on first call.
 final class Detector {
     private let model: Model
-    init() throws { self.model = try Lynx.load("lynx-basic") }
+    init() throws { self.model = try Lynx.open("lynx-basic") }
 
     /// Run detection on a UIImage. Returns [label, score, pixel rect].
     func detect(_ image: UIImage, minConfidence: Float = 0.4) throws -> [Box] {

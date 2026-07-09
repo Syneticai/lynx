@@ -6,7 +6,7 @@ Goal: load a model, run detection on a `Bitmap`, get boxes + labels + scores. Mo
 
 ## The whole thing
 
-`Lynx.load` and `predict` are synchronous and throw; the first load downloads the model, so run them **off the main thread**. The on-device path takes raw **RGB bytes** (HWC, `width*height*3`) — convert your `Bitmap` and pass the bytes with `width`/`height`.
+`Lynx.open` and `predict` are synchronous and throw; the first load downloads the model, so run them **off the main thread**. The on-device path takes raw **RGB bytes** (HWC, `width*height*3`) — convert your `Bitmap` and pass the bytes with `width`/`height`.
 
 ```kotlin
 import ai.synetic.lynx.Lynx
@@ -19,7 +19,7 @@ data class Box(val label: String, val score: Float, val left: Float, val top: Fl
 
 /** Load once, reuse. Loading downloads the model on first call. */
 class Detector {
-    private val model: Model = Lynx.load("lynx-basic")   // keyless
+    private val model: Model = Lynx.open("lynx-basic")   // keyless
 
     /** Run detection on a Bitmap. Returns [label, score, pixel box]. */
     fun detect(bitmap: Bitmap, minConfidence: Float = 0.4f): List<Box> {
@@ -77,7 +77,7 @@ suspend fun runDetection(detector: Detector, bitmap: Bitmap) {
 }
 ```
 
-> Build the `Detector` itself off the main thread too — its constructor calls `Lynx.load`, which downloads on first run. A plain background thread or `withContext(Dispatchers.Default) { Detector() }` both work.
+> Build the `Detector` itself off the main thread too — its constructor calls `Lynx.open`, which downloads on first run. A plain background thread or `withContext(Dispatchers.Default) { Detector() }` both work.
 
 ## If you have an image file instead of a Bitmap
 

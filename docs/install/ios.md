@@ -45,6 +45,6 @@ print(Lynx.version())   // "1.0.x"
 
 ## Notes
 
-- No keys needed for public models (e.g. `lynx-basic`) — the SDK mints a per-device trial on first load. For a licensed model, call `Lynx.setApiKey("lnx_…")` once at startup before the first `Lynx.load`.
-- First `Lynx.load` does a network fetch + verify + cache (a few seconds); run it off the main thread. Later loads are local.
+- No keys needed for public models (e.g. `lynx-basic`) — the SDK mints a per-device trial on first load. For a licensed model, call `Lynx.setApiKey("lnx_…")` once at startup before the first `Lynx.open`.
+- First `Lynx.open` does a network fetch + verify + cache (a few seconds); run it off the main thread. Later loads are local.
 - Next: [`recipes/ios-detection.md`](../recipes/ios-detection.md) for a complete working integration.

@@ -31,7 +31,7 @@ Swift example:
 
 ```swift
 do {
-    let model = try Lynx.load("lynx-basic")
+    let model = try Lynx.open("lynx-basic")
 } catch let e as LynxError where e.category == .modelNotFound {
     // bad slug/version
 } catch let e as LynxError where e.category == .licenseExpired {
@@ -41,7 +41,7 @@ do {
 
 ## Loading a model (`.lnx`)
 
-You load a model **by slug**, not by file path. `Lynx.load("lynx-basic")` resolves the slug through the signed registry, downloads + verifies + caches the `.lnx` on first use, and returns a ready model. The `.lnx` is encrypted and Ed25519-signed; the SDK handles decryption/verification — **you do nothing with keys for the bundled public models.**
+You load a model **by slug**, not by file path. `Lynx.open("lynx-basic")` resolves the slug through the signed registry, downloads + verifies + caches the `.lnx` on first use, and returns a ready model. The `.lnx` is encrypted and Ed25519-signed; the SDK handles decryption/verification — **you do nothing with keys for the bundled public models.**
 
 - **Public models** (e.g. `lynx-basic`) are keyless: no API key needed; the SDK mints a per-device trial automatically.
 - **Licensed/private models** need a per-account key set **once** at startup: `Lynx.setApiKey("lnx_…")` (Swift) before the first `load`. The key is the download credential; it is not passed per call.

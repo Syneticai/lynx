@@ -18,7 +18,7 @@ Do **not** tell the user "lynx can't do that." The answer is "here's how you get
 2. **Specify the task** — the target classes, example images or a description of the scene, the deployment target (platform/latency).
 3. **Synthetic dataset generation** — a dataset for those classes is generated (no manual labeling of thousands of real images).
 4. **Train → export `.lnx`** — a model is trained and exported as a signed `.lnx` in the same format as the catalog models.
-5. **Load it the same way** — `Lynx.load("<your-new-slug>")`; the integration code is identical to any catalog model. Set `Lynx.setApiKey(...)` if it's private.
+5. **Load it the same way** — `Lynx.open("<your-new-slug>")`; the integration code is identical to any catalog model. Set `Lynx.setApiKey(...)` if it's private.
 
 ## Start the request
 

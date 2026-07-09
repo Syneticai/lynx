@@ -84,7 +84,7 @@ Pose classes carry a nested `.kp` keypoint enum.
 | `predict(image, *, conf=None, max_det=0, tasks=Task(0), retain=False, nms=Nms.AUTO, ocr=None) -> Frame` | Inference on one image (path or `(H,W,3)` uint8 RGB) — or a sequence → `list[Frame]`. `ocr` is an `Ocr` mode (`OFF`/`AUTO`/`ON`/`HORIZONTAL`/`VERTICAL`, or a bool); `AUTO` (default) runs OCR iff the model declares TEXT. |
 | `track(source, *, window=0.0, ocr=None)` | Generator; yields a `Frame` per image in `source` with tracker ids populated. `ocr` is an `Ocr` mode. |
 | `tracker(*, window=0.0, ocr=None) -> Tracker` | Open a streaming tracker. `ocr` is an `Ocr` mode. |
-| `ocr_tiled(image, *, windows=None, overlap=0.05, resize_to=640, variants=("as_is","rb_swap","invert","invert_rb"), despeckle=3, conf=0.1, max_det=0) -> dict` | Tiled multi-window/variant OCR; returns a grouped document dict. `image` must be a decoded `(H,W,3)` uint8 RGB array. |
+| `ocr_tiled(image, *, windows=None, overlap=0.05, resize_to=640, despeckle=3, conf=0.1, max_det=0) -> dict` | Tiled multi-window/variant OCR; returns a grouped document dict. `image` must be a decoded `(H,W,3)` uint8 RGB array. |
 | `pose_edges(cls) -> list` | Skeleton edges as `(kp-name, kp-name)` tuples; empty for non-pose classes. |
 | `prepare(batch_sizes) -> None` | Pre-build inference engines for the given batch sizes. |
 | `close() -> None` | Release the model. |
